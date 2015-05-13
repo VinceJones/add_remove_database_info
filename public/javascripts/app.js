@@ -1,6 +1,6 @@
 $(document).ready(function(){
     getData();
-    //getPostTemplate();
+    getPostTemplate();
 
     $(".dataDisplay").on('click', ".removeData", function() {
        var dataId = $(this).data('id');
@@ -12,6 +12,9 @@ $(document).ready(function(){
             }
         }
     });
+    //$(".postDataDisplay").on('click', ".submitBtn", function(){
+    //    getData();
+    //});
 });
 
 var databaseInfo;
@@ -26,6 +29,7 @@ function getPostTemplate() {
         success: function(response) {
             console.log("Got you the post template");
             $(".postDataDisplay").append(response);
+            //getData();
         },
         error: function() {
             console.log("No post template for you!");

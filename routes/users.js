@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next){
     Assignment.create(req.body, function(err, postBackData){
       if (err) return next("Hey bozo, you gots CREATE error ", err);
-      res.json(postBackData);
+      //res.json(postBackData);
     });
 });
 
