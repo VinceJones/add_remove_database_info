@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var path = require('path');
 var mongoose = require('mongoose');
 var Assignment = require('../models/assignment');
 
@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next){
     Assignment.create(req.body, function(err, postBackData){
       if (err) return next("Hey bozo, you gots CREATE error ", err);
-      //res.json(postBackData);
+        res.sendFile(path.resolve(__dirname, '../views/index.html'));
     });
 });
 
