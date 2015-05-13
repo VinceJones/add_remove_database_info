@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    $(".dataDisplay").append("Yo!");
     getData();
+    //getPostTemplate();
 
     $(".dataDisplay").on('click', ".removeData", function() {
        var dataId = $(this).data('id');
@@ -15,6 +15,28 @@ $(document).ready(function(){
 });
 
 var databaseInfo;
+
+////////////////////////////////////////
+// Get POST Template
+////////////////////////////////////////
+function getPostTemplate() {
+    $.ajax({
+        type: "GET",
+        url: "/postTemplate",
+        success: function(response) {
+            console.log("Got you the post template");
+            $(".postDataDisplay").append(response);
+        },
+        error: function() {
+            console.log("No post template for you!");
+        },
+        complete: function() {
+            console.log("Post template function done");
+        }
+    })
+}
+
+
 
 /////////////////////////////////////////
 // This will Delete data from my DataBase
