@@ -23,7 +23,13 @@ router.post('/', function(req, res, next){
 // UPDATE:
 router.put('/:id', function(req, res, next){
     Assignment.findByIdAndUpdate(req.params.id, req.body, function(err, post){
-      if (err) return next("Hey bozo, you gots UPDATE error ", err);
+        console.log("PUT request param ", req.params.id);
+        console.log("PUT request body ", req.body);
+      if (err) {
+          console.log(err);
+          return next("Hey bozo, you gots UPDATE error ", err);
+      }
+        console.log(post);
       res.json(post);
     });
 });
